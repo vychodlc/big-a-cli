@@ -19,12 +19,29 @@ npm install -g @ali/big-a-cli
 
 ## Configuration
 
-Create a `.env` file in your home directory or current working directory:
+### Interactive Configuration (Recommended)
+
+Run the config command to set up your API credentials:
 
 ```bash
-AI_API_KEY=your_api_key_here
-AI_BASE_URL=https://api.openai.com/v1
-AI_MODEL=gpt-3.5-turbo
+big-a config
+```
+
+Follow the prompts to enter:
+- API Key
+- Base URL (default: https://api.openai.com/v1)
+- Model (default: gpt-3.5-turbo)
+
+### Manual Configuration
+
+Create a config file at `~/.big-a-cli/config.json`:
+
+```json
+{
+  "apiKey": "your_api_key_here",
+  "baseUrl": "https://api.openai.com/v1",
+  "model": "gpt-3.5-turbo"
+}
 ```
 
 ## Usage
