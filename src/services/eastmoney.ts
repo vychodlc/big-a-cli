@@ -3,7 +3,7 @@
  * 免费获取 A 股实时行情和历史数据
  */
 
-interface StockQuote {
+export interface StockQuote {
   code: string;
   name: string;
   price: number;
