@@ -1,18 +1,49 @@
 {
-  "name": "chat-cli",
-  "version": "1.0.0",
-  "description": "Simple CLI chat with AI",
+  "name": "@ali/big-a-cli",
+  "version": "1.0.1",
+  "description": "A powerful CLI chat tool with AI integration and stock monitoring",
   "type": "module",
   "main": "dist/index.js",
+  "bin": {
+    "big-a": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "tsc && node dist/index.js",
     "build": "tsc",
     "start": "node dist/index.js",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "prepack": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "chat",
+    "ai",
+    "gpt",
+    "stock",
+    "monitor",
+    "terminal",
+    "ink",
+    "big-a"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
   "dependencies": {
     "@ai-sdk/openai": "^0.0.20",
     "@pppp606/ink-chart": "^0.2.4",
@@ -27,5 +58,8 @@
     "@types/figlet": "^1.7.0",
     "@types/node": "^25.2.0",
     "typescript": "^5.9.3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.anpm.alibaba-inc.com"
   }
 }

@@ -35,25 +35,9 @@ interface Message {
   type?: "text" | "component";
 }
 
-const JOKES = [
-  "为什么程序员总是混淆圣诞节和万圣节？因为 Oct 31 == Dec 25！",
-  '一个 SQL 查询走进酒吧，看到两张表，问道："我可以 JOIN 你们吗？"',
-  "程序员的三大美德：懒惰、急躁和傲慢。",
-  "Bug：一个让程序员在凌晨 3 点还在工作的魔法咒语。",
-];
-
-const FACTS = [
-  '第一个计算机病毒是在 1983 年创建的，名为"Elk Cloner"。',
-  "Python 的名字来自于英国喜剧团体 Monty Python，而不是蛇。",
-  "第一台 1GB 硬盘重达 250 公斤，价格为 40,000 美元（1980 年）。",
-  "平均每天有超过 60 亿条 Google 搜索。",
-];
-
 const COMMANDS = [
   "help",
   "clear",
-  "joke",
-  "fact",
   "stock",
   "analyze",
   "monitor",
@@ -242,8 +226,6 @@ function App({ apiKey, baseUrl, model }: AppProps) {
             content: `可用命令：
   /help           - 显示此帮助信息
   /clear          - 清空聊天历史
-  /joke           - 随机讲一个笑话
-  /fact           - 分享一个随机知识
   /stock <代码>   - 查询股票行情 (如: /stock 600519)
   /analyze <代码> - 深度分析股票 (如: /analyze 600519)
   /monitor        - 交互式设置股票监控
@@ -255,28 +237,6 @@ function App({ apiKey, baseUrl, model }: AppProps) {
 
       case "clear":
         setMessages([{ role: "assistant", content: "聊天历史已清空。" }]);
-        return true;
-
-      case "joke":
-        const joke = JOKES[Math.floor(Math.random() * JOKES.length)];
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: joke,
-          },
-        ]);
-        return true;
-
-      case "fact":
-        const fact = FACTS[Math.floor(Math.random() * FACTS.length)];
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: `💡 ${fact}`,
-          },
-        ]);
         return true;
 
       case "stock":
